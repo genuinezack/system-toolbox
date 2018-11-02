@@ -6,7 +6,7 @@ alias up="cd .."
 alias iPhone="open /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app"
 
 # Credit to @JorgeO for this gorgeous git log modified version
-alias glow="git log --graph --pretty=format:'' --abbrev-commit --date=relative"
+alias glow="git log --graph --abbrev-commit --date=relative --pretty=\"%Cgreen%h %Creset%s - %C(bold blue)%an %Creset- %Cblue%ad%C(bold red)%d%Creset\""
 alias gs="git status"
 alias gg="git grep"
 
