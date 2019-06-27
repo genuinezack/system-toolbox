@@ -1,28 +1,18 @@
-# My collection of terminal tweaks. Source this from your platform's .bashrc or .bash_profile
+# Shared-shell (bash or zsh or...) terminal tweaks and productivity commands
 
 alias up="cd .."
-
-# Shortcut to open the iPhone emulator for mobile website testing
-alias iPhone="open /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app"
-
-# Credit to @JorgeO for this gorgeous git log modified version
-alias glow="git log --graph --abbrev-commit --date=relative --pretty=\"%Cgreen%h %Creset%s - %C(bold blue)%an %Creset- %Cblue%ad%C(bold red)%d%Creset\""
+alias grim="git rebase master"
 alias gs="git status"
 alias gg="git grep"
 
-alias pull="git pull"
-alias push="git push origin master"
-alias sync="pull && push"
+alias glow="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gipper="git rev-parse --abbrev-ref HEAD | xargs -n 1 git push origin && open \`hub pull-request\`"
 
-# Enable color in the terminal
-CLICOLOR=1
+function cdl { cd $1; ls; }
 
-LSCOLORS=gxfxcxdxbxegedabagacad
-
-export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\] $ '
-
-# Enable color for iTerm
-export TERM=xterm-color
+# Set up proper alias commands for ls/ll
+alias ls='ls -G'
+alias ll='ls -hl'
 
 # Define UTF-8 as our terminal language to ensure emoji support!
 export LC_ALL=en_US.UTF-8
