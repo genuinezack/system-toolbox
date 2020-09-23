@@ -22,7 +22,7 @@ alias glow="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 alias gpb="git rev-parse --abbrev-ref HEAD | xargs -n 1 git push origin"
 
 # Push current branch to origin and open a pull request (requires github's hub command)
-alias gipper="gpb && open \`hub pull-request\`"
+alias gipper="gpb && gh pr create"
 
 alias squash-killer='git checkout -q develop && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base develop $branch) && [[ $(git cherry develop $(git commit-tree $(git rev-parse $branch\^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 
